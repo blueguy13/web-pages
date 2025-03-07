@@ -1,0 +1,152 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VortexSMP GIFs</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      max-width: 1200px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      margin: 20px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #333;
+      letter-spacing: 2px;
+    }
+
+    .gif-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .gif-item {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gif-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .gif-item img {
+      width: 100%;
+      border-radius: 10px;
+      max-height: 300px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .gif-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .gif-item h2 {
+      font-size: 1.5rem;
+      color: #444;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .gif-item a {
+      display: inline-block;
+      padding: 8px 15px;
+      margin-top: 10px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .gif-item a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>VortexSMP GIFs</h1>
+    <div class="gif-gallery" id="gif-gallery">
+      <!-- GIFs will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <script>
+    const gifs = [
+      { name: "Excited Cat", url: "https://media.giphy.com/media/vFKqncdxmdMeA/giphy.gif" },
+      { name: "Happy Dance", url: "https://media.giphy.com/media/l46CbZ7KWEh0K39du/giphy.gif" },
+      { name: "Funny Dog", url: "https://media.giphy.com/media/3oEjI4s2vJP80bE7nq/giphy.gif" }
+    ];
+
+    const gallery = document.getElementById("gif-gallery");
+
+    gifs.forEach(gif => {
+      const gifItem = document.createElement("div");
+      gifItem.classList.add("gif-item");
+
+      const gifTitle = document.createElement("h2");
+      gifTitle.textContent = gif.name;
+
+      const gifImg = document.createElement("img");
+      gifImg.src = gif.url;
+      gifImg.alt = gif.name;
+
+      const gifLink = document.createElement("a");
+      gifLink.href = gif.url;
+      gifLink.textContent = "View GIF";
+      gifLink.target = "_blank";
+
+      gifItem.appendChild(gifTitle);
+      gifItem.appendChild(gifImg);
+      gifItem.appendChild(gifLink);
+
+      gallery.appendChild(gifItem);
+    });
+  </script>
+</body>
+</html>
